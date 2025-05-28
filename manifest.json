@@ -1,15 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Download Blocker with CAPTCHA",
+  "name": "Captcha Download Blocker",
   "version": "1.0",
-  "description": "Blocks file downloads until CAPTCHA is solved, with future Google Authenticator support",
-  "permissions": [
-    "downloads",
-    "downloads.block",
-    "storage",
-    "activeTab",
-    "scripting"
-  ],
+  "description": "Блокирует скачивание файлов, если на странице есть капча",
+  "permissions": ["scripting", "downloads"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
   },
@@ -17,20 +12,20 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content-script.js"],
-      "run_at": "document_start"
+      "run_at": "document_idle"
     }
   ],
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": {
+      "16": "icons/icon16.png",
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     }
   },
-  "web_accessible_resources": [
-    {
-      "resources": ["captcha/captcha.html", "captcha/captcha.js", "captcha/captcha.css"],
-      "matches": ["<all_urls>"]
-    }
-  ]
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }
