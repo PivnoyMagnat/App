@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Verify CAPTCHA</title>
+  <link rel="stylesheet" href="captcha.css">
+</head>
+<body>
+  <div class="captcha-container">
+    <h2>Verify you're human</h2>
+    <div class="captcha-box" id="captchaBox"></div>
+    <input type="text" id="captchaInput" placeholder="Enter CAPTCHA text">
+    <button id="verifyBtn">Verify</button>
+    <p id="errorMsg" class="error"></p>
+    
+    <div class="future-auth">
+      <p>Future feature: Google Authenticator verification</p>
+    </div>
+  </div>
+  <script src="captcha.js"></script>
+</body>
+</html>
