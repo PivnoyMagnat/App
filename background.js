@@ -1,3 +1,13 @@
+importScripts('popup/libs/otplib-browser.js');
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg.action === "verifyTOTP") {
+    chrome.storage.local.get("totpSecret", (res) => {
+      const valid = otplib.authenticator.check(msg.code, res.totpSecret);
+      sendResponse({ valid });
+    });
+    return true; // async response
+  }
+});
 let downloadQueue = [];
 let isCaptchaEnabled = true;
 
