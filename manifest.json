@@ -1,10 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Captcha Download Blocker",
-  "version": "1.0",
-  "description": "Блокирует скачивание файлов, если на странице есть капча",
-  "permissions": ["scripting", "downloads"],
+  "name": "File Download Auth",
+  "version": "1.1",
+  "permissions": ["storage", "scripting"],
   "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
   "background": {
     "service_worker": "background.js"
   },
